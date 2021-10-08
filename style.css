@@ -11,42 +11,43 @@ html {
 }
 body {
   font-family: "Manrope";
-  background-color: hsl(210, 46%, 95%);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+  background-color: hsl(210, 46%, 95%);
   color: hsl(214, 17%, 51%);
 }
 a:hover {
   opacity: 0.7;
 }
 .article {
+  width: 320px;
+  border-radius: 10px;
   background-color: #fbfbfb;
   margin-bottom: 1rem;
-  border-radius: 10px;
   box-shadow: 3px 16px 28px -10px hsl(212deg 23% 69% / 36%);
-  overflow: hidden;
-  width: 320px;
+  overflow: visible;
 }
 .article__img {
+  height: 197px;
   background-image: url(images/drawers.jpg);
   background-size: 100%;
   background-position-y: -16px;
-  height: 197px;
+  border-radius: 10px 10px 0 0;
 }
 .article__title {
-  margin-bottom: 1rem;
   color: hsl(217, 19%, 35%);
   font-weight: 800;
   padding: 2rem 2rem 0;
+  margin-bottom: 1rem;
 }
 .article__text {
-  margin-bottom: 2rem;
   font-size: 0.8rem;
   padding: 0 2rem;
   padding-right: 2.2rem;
+  margin-bottom: 2rem;
 }
 /* article author section */
 .article__author {
@@ -54,7 +55,7 @@ a:hover {
   align-items: center;
   width: 320px;
   padding: 0.5rem 2rem;
-  font-size: 14.4px;
+  font-size: 0.9rem;
 }
 .author__img {
   border-radius: 50%;
@@ -65,8 +66,8 @@ a:hover {
   margin-left: 1rem;
 }
 .author__name {
-  font-weight: 800;
   font-size: 0.8rem;
+  font-weight: 800;
   color: hsl(217, 19%, 35%);
 }
 .article__date {
@@ -75,14 +76,14 @@ a:hover {
 }
 .share-icon {
   width: 16px;
-  height: 13px;
+  height: 16px;
 }
 .share-icon__container {
+  width: 33px;
   background-color: hsl(210, 46%, 95%);
   border-radius: 50%;
   padding: 7px;
   margin-left: auto;
-  width: 33px;
   text-align: center;
   cursor: pointer;
   /* disable highlight to spam click share icon */
@@ -94,20 +95,22 @@ a:hover {
 }
 /* share menu  */
 .share-menu {
+  width: 320px;
+  display: none;
+  align-items: center;
   background-color: hsl(217, 19%, 35%);
   color: hsl(212, 23%, 69%);
-  width: 320px;
-  padding: 0.9rem 2rem;
   border-radius: 0 0 10px 10px;
-  text-transform: uppercase;
+  padding: 0.84rem 2rem;
   font-size: 0.9rem;
   letter-spacing: 3px;
-  align-items: center;
-  display: none;
+  text-transform: uppercase;
 }
 .social-links {
   display: flex;
+  align-items: center;
   gap: 16px;
+  /* gap: 0.9rem; */
 }
 .social-links img {
   cursor: pointer;
@@ -141,4 +144,80 @@ a:hover {
 }
 .attribution a {
   color: hsl(228, 45%, 44%);
+}
+/* desktop style */
+@media (min-width: 1200px) {
+  .article {
+    display: flex;
+    flex-direction: row;
+    width: 800px;
+  }
+  .article__img {
+    width: 443px;
+    height: auto;
+    background-size: cover;
+    background-position-y: 0px;
+    border-radius: 10px 0 0 10px;
+  }
+  .article__body {
+    width: 96%;
+    position: relative;
+  }
+  .article__title {
+    font-size: 1.3rem;
+    padding: 3rem 3rem 0;
+  }
+  .article__text {
+    padding: 0 3rem 0;
+    padding-right: 3rem;
+    margin-bottom: 1rem;
+  }
+  .article__author {
+    width: auto;
+    padding: 0.5rem 3rem;
+    padding-right: 3rem;
+    padding-bottom: 1.1rem;
+  }
+  /* share menu desktop */
+  .share-menu {
+    width: 100%;
+    border-radius: 0;
+    padding: 0.87rem 3rem;
+    padding-top: 0.9rem;
+    padding-bottom: 1.45rem;
+  }
+  .desktop-menu:before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-width: 15px;
+    border-style: solid;
+    border-color: hsl(217, 19%, 35%) #ffffff00 #00000000 transparent;
+    top: 48px;
+    left: 92px;
+    bottom: -29px;
+  }
+  .desktop-menu {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    width: 15%;
+    height: 100%;
+    border-radius: 0;
+    border-radius: 10px;
+    height: auto;
+    width: auto;
+    top: 9.7rem;
+    right: -3.5rem;
+    left: 66%;
+    bottom: 82px;
+    padding: 12px 30px;
+  }
+  .active-btn {
+    background-color: hsl(214, 17%, 51%);
+  }
+  .active-btn img {
+    filter: brightness(0) invert(1);
+  }
 }
